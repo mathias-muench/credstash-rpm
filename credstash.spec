@@ -11,13 +11,14 @@ URL:           https://github.com/fugue/credstash
 Source0:       https://github.com/fugue/%{pyname}/archive/v%{version}.tar.gz
 
 BuildArch:     noarch
-BuildRequires: gcc libffi-devel openssl-devel python-setuptools
-BuildRequires: python2-devel python2-setuptools python2-rpm-macros
-BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-setuptools python3-rpm-macros
+BuildRequires: gcc libffi-devel openssl-devel
+BuildRequires: python2-devel python2-nose python2-rpm-macros
+BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-nose python3-rpm-macros
 
 
 %description
 A utility for managing secrets in the cloud using AWS KMS and DynamoDB
+
 
 %package -n python2-%{pyname}
 Summary:       %{sum}
