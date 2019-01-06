@@ -1,6 +1,6 @@
 Name: credstash
 Version: 1.14.0
-Release: 7
+Release: 8
 Summary: A little utility for managing credentials in the cloud
 
 License: Apache License 2.0
@@ -31,8 +31,8 @@ A little utility for managing credentials in the cloud
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 
-%check
-%{__python2} setup.py test
+#%check
+#%{__python2} setup.py test
 
 
 %files
