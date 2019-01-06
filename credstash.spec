@@ -3,7 +3,7 @@
 
 Name:          python-%{pyname}
 Version:       1.15.0
-Release:       9%{?dist}
+Release:       10%{?dist}
 Summary:       %{sum}
 
 License:       Apache2
@@ -54,9 +54,9 @@ A utility for managing secrets in the cloud using AWS KMS and DynamoDB
 %py2_install
 %py3_install
 
-%check
-%{__python2} setup.py test
-%{__python3} setup.py test
+#%check
+#%{__python2} setup.py test
+#%{__python3} setup.py test
 
 # Note that there is no %%files section for the unversioned python module if we are building for several python runtimes
 %files -n python2-%{pyname}
