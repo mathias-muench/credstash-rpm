@@ -2,7 +2,7 @@
 
 A RPM package for the [credstash](https://github.com/fugue/credstash) utility.
 
-Packages are availablable in [https://copr.fedorainfracloud.org/coprs/mmu/credstash-rpm/packages/](Fedora copr)
+Packages are availablable in [Fedora copr](https://copr.fedorainfracloud.org/coprs/mmu/credstash-rpm/packages/)
 
 Early version, tested roughly with Fedora Core 29
 
