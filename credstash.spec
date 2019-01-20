@@ -49,11 +49,13 @@ Requires(postun): %{_sbindir}/update-alternatives
 %py2_build
 %py3_build
 
+%if 0%{?fedora} >= 28
 %install
 %py2_install
 %{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python2_version}.py
 %py3_install
 %{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python3_version}.py
+%endif
 
 #%check
 #%{__python2} setup.py test
