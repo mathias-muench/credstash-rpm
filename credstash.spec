@@ -75,6 +75,7 @@ if [ $1 -eq 0 ] ; then
   %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/credstash-%{python3_version}.py
 fi
 
+%if 0%{?fedora} >= 28
 %files -n python2-%{pyname}
 %license LICENSE
 %doc README.md
@@ -88,5 +89,6 @@ fi
 %{python3_sitelib}/*
 %{_bindir}/credstash-%{python3_version}.py
 %ghost %{_bindir}/credstash
+%endif
 
 %changelog
