@@ -1,10 +1,10 @@
 %global pyname credstash
-%global sum A little utility for managing credentials in the cloud
+%global pydesc A utility for managing secrets in the cloud using AWS KMS and DynamoDB
 
 Name:          python-%{pyname}
 Version:       1.15.0
 Release:       10%{?dist}
-Summary:       %{sum}
+Summary:       %{pydesc}
 
 License:       Apache2
 URL:           https://github.com/fugue/credstash
@@ -17,25 +17,25 @@ BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-nos
 
 
 %description
-A utility for managing secrets in the cloud using AWS KMS and DynamoDB
+%{pydesc}
 
 
 %package -n python2-%{pyname}
-Summary:       %{sum}
+Summary:       %{pydesc}
 %{?python_provide: %python_provide python2-%{pyname}}
 Requires:      python2-cryptography >= 2.1, python-boto3 >= 1.1.1, python-botocore, python-futures
 
 %description -n python2-%{pyname}
-A utility for managing secrets in the cloud using AWS KMS and DynamoDB
+%{pydesc}
 
 
 %package -n python%{python3_pkgversion}-%{pyname}
-Summary:       %{sum}
+Summary:       %{pydesc}
 %{?python_provide: %python_provide python%{python3_pkgversion}-%{pyname}}
 Requires:      python%{python3_pkgversion}-cryptography >= 2.1, python%{python3_pkgversion}-boto3 >= 1.1.1, python%{python3_pkgversion}-botocore
 
 %description -n python%{python3_pkgversion}-%{pyname}
-A utility for managing secrets in the cloud using AWS KMS and DynamoDB
+%{pydesc}
 
 
 %prep
