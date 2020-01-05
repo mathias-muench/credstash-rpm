@@ -1,17 +1,21 @@
 # Credstash RPM
 
-A RPM package for the [credstash](https://github.com/fugue/credstash) utility.
+A RPM package for [fugue/credstash: A little utility for managing credentials in the cloud](https://github.com/fugue/credstash).
 
-Packages are availablable in [Fedora copr](https://copr.fedorainfracloud.org/coprs/mmu/credstash-rpm/packages/)
+In use since Fedora Core 29 and CentOS7 since some years.
 
-Early version, tested roughly with Fedora Core 29
+## Build 
 
-## Build RPM using rpmbuild
+Using `rpmbuild`: `make -f .copr/Makefile rpm`
 
-    rpmbuild --undefine=_disable_source_fetch -bb credstash.spec
+Using `mock`: `make -f .copr/Makefile root=epel-7-x86_64 mock`
 
-## Build RPM using mock
+Prebuilt packages are availablable in [mmu/credstash-rpm Copr](https://copr.fedorainfracloud.org/coprs/mmu/credstash-rpm/).
 
-    mock -r epel-7-x86_64 --rebuild --nocheck /home/muenchm/rpmbuild/SRPMS/python-credstash-1.14.0-9.fc29.src.rpm
+## Install
 
-> CAUTION: EL7 seems not to have a boto3 library for python3, so python3 package will not be installable on EL
+Fedora: `dnf install python3-credstash`.
+
+CentOS7: `yum install python2-credstash`.
+
+Python2/3 versions may be installed in parallel, binary can be chosen via `alternatives(8)`.
