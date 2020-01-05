@@ -49,10 +49,10 @@ Requires(postun): %{_sbindir}/update-alternatives
 %py2_build
 %py3_build
 
-%if 0%{?fedora} >= 28
 %install
 %py2_install
 %{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python2_version}.py
+%if 0%{?fedora} >= 28
 %py3_install
 %{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python3_version}.py
 %endif
@@ -77,7 +77,6 @@ if [ $1 -eq 0 ] ; then
   %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/credstash-%{python3_version}.py
 fi
 
-%if 0%{?fedora} >= 28
 %files -n python2-%{pyname}
 %license LICENSE
 %doc README.md
@@ -85,6 +84,7 @@ fi
 %{_bindir}/credstash-%{python2_version}.py
 %ghost %{_bindir}/credstash
 
+%if 0%{?fedora} >= 28
 %files -n python%{python3_pkgversion}-%{pyname}
 %license LICENSE
 %doc README.md
