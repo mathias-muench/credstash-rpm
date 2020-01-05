@@ -1,6 +1,6 @@
 spec=credstash.spec
 outdir=$(shell rpm --eval '%{_srcrpmdir}')
-root=fedora-29-x86_64
+root=fedora-31-x86_64
 
 srpm:
 	rpmbuild --undefine=_disable_source_fetch --define='_srcrpmdir $(outdir)' -bs $(spec)
