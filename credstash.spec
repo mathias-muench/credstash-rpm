@@ -2,7 +2,7 @@
 %global pydesc A utility for managing secrets in the cloud using AWS KMS and DynamoDB
 
 Name:          python-%{pyname}
-Version:       1.16.1
+Version:       1.16.2
 Release:       11%{?dist}
 Summary:       %{pydesc}
 
