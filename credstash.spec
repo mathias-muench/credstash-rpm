@@ -12,24 +12,11 @@ Source0:       https://github.com/fugue/%{pyname}/archive/v%{version}.tar.gz
 
 BuildArch:     noarch
 BuildRequires: gcc libffi-devel openssl-devel
-BuildRequires: python2-devel python2-nose python2-rpm-macros
 BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-nose python3-rpm-macros
 
 
 %description
 %{pydesc}
-
-
-%package -n python2-%{pyname}
-Summary:       %{pydesc}
-%{?python_provide: %python_provide python2-%{pyname}}
-Requires:      python2-cryptography >= 2.1, python-boto3 >= 1.1.1
-Requires(post): %{_sbindir}/update-alternatives
-Requires(postun): %{_sbindir}/update-alternatives
-
-%description -n python2-%{pyname}
-%{pydesc}
-
 
 %package -n python%{python3_pkgversion}-%{pyname}
 Summary:       %{pydesc}
@@ -41,33 +28,18 @@ Requires(postun): %{_sbindir}/update-alternatives
 %description -n python%{python3_pkgversion}-%{pyname}
 %{pydesc}
 
-
 %prep
 %autosetup -n %{pyname}-%{version}
 
 %build
-%py2_build
 %py3_build
 
 %install
-%py2_install
-%{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python2_version}.py
-%if 0%{?fedora} >= 28
 %py3_install
 %{__mv} %{buildroot}/%{_bindir}/credstash.py %{buildroot}/%{_bindir}/credstash-%{python3_version}.py
-%endif
 
-#%check
-#%{__python2} setup.py test
-#%{__python3} setup.py test
-
-%post -n python2-%{pyname}
-%{_sbindir}/update-alternatives --install %{_bindir}/credstash %{name} %{_bindir}/credstash-%{python2_version}.py 20
-
-%postun -n python2-%{pyname}
-if [ $1 -eq 0 ] ; then
-  %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/credstash-%{python2_version}.py
-fi
+%check
+%{__python3} setup.py test
 
 %post -n python%{python3_pkgversion}-%{pyname}
 %{_sbindir}/update-alternatives --install %{_bindir}/credstash %{name} %{_bindir}/credstash-%{python3_version}.py 30
@@ -77,20 +49,11 @@ if [ $1 -eq 0 ] ; then
   %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/credstash-%{python3_version}.py
 fi
 
-%files -n python2-%{pyname}
-%license LICENSE
-%doc README.md
-%{python2_sitelib}/*
-%{_bindir}/credstash-%{python2_version}.py
-%ghost %{_bindir}/credstash
-
-%if 0%{?fedora} >= 28
 %files -n python%{python3_pkgversion}-%{pyname}
 %license LICENSE
 %doc README.md
 %{python3_sitelib}/*
 %{_bindir}/credstash-%{python3_version}.py
 %ghost %{_bindir}/credstash
-%endif
 
 %changelog
