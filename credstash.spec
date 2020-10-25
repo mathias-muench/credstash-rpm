@@ -11,8 +11,8 @@ URL:           https://github.com/fugue/credstash
 Source0:       https://github.com/fugue/%{pyname}/archive/v%{version}.tar.gz
 
 BuildArch:     noarch
-BuildRequires: gcc libffi-devel openssl-devel
-BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-nose python3-rpm-macros
+BuildRequires: gcc, libffi-devel, openssl-devel
+BuildRequires: python%{python3_pkgversion}-devel, python3-rpm-macros
 
 
 %description
