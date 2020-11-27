@@ -2,7 +2,7 @@
 %global pydesc A utility for managing secrets in the cloud using AWS KMS and DynamoDB
 
 Name:          python-%{pyname}
-Version:       1.16.2
+Version:       1.16.1
 Release:       11%{?dist}
 Summary:       %{pydesc}
 
@@ -13,7 +13,9 @@ Source0:       https://github.com/fugue/%{pyname}/archive/v%{version}.tar.gz
 BuildArch:     noarch
 BuildRequires: gcc libffi-devel openssl-devel
 BuildRequires: python2-devel python2-nose python2-rpm-macros
+%if 0%{?fedora} >= 28
 BuildRequires: python%{python3_pkgversion}-devel python%{python3_pkgversion}-nose python3-rpm-macros
+%endif
 
 
 %description
@@ -47,7 +49,9 @@ Requires(postun): %{_sbindir}/update-alternatives
 
 %build
 %py2_build
+%if 0%{?fedora} >= 28
 %py3_build
+%endif
 
 %install
 %py2_install
