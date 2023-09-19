@@ -9,4 +9,4 @@ rpm:
 	rpmbuild --undefine=_disable_source_fetch --define='_srcrpmdir $(outdir)' -bb $(spec)
 
 mock: srpm
-	mock -N --root $(root) --rebuild $(outdir)/$(shell rpmspec -q --srpm $(spec) | sed 's/\.[^.]*$$/.src.rpm/')
+	mock -N --root $(root) --enable-network --rebuild $(outdir)/$(shell rpmspec -q --srpm $(spec) | sed 's/\.[^.]*$$/.src.rpm/')
