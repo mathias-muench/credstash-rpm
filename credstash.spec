@@ -8,7 +8,7 @@ Summary:           %{pydesc}
 
 License:           Apache2
 URL:               https://github.com/fugue/credstash
-Source0:           https://github.com/fugue/%{pyname}/archive/v%{version}.tar.gz
+Source0:           https://github.com/fugue/%{pyname}/archive/refs/tags/v%{version}.tar.gz
 
 BuildArch:         noarch
 BuildRequires:     gcc libffi-devel openssl-devel
