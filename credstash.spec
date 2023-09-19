@@ -3,7 +3,7 @@
 
 Name:              python-%{pyname}
 Version:           1.16.1
-Release:           13%{?dist}
+Release:           14%{?dist}
 Summary:           %{pydesc}
 
 License:           Apache2
@@ -92,3 +92,8 @@ fi
 %{_bindir}/credstash-%{python3_version}.py
 %ghost %{_bindir}/credstash
 %endif
+
+%changelog
+* Tue Sep 19 2023 Mathias Muench <Mathias.Muench@de.bosch.com> - 1.16.1-14
+- rebuilt
+
